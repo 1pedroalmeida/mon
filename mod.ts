@@ -58,6 +58,12 @@ while (true) {
             continue;
         }
 
+        if(["reset", "R"].includes(input)) {
+            Deno.writeTextFileSync(filePath, "");
+            Deno.stdout.writeSync(encode("Account balance has been reset\n"))
+            continue;
+        }
+
         if (["quit", "q"].includes(input)) {
             Deno.stdout.writeSync(encode("\u001bc"));
 
