@@ -35,7 +35,7 @@ export function printBannerMsg(balance: number, message?: string) {
   Deno.stdout.writeSync(encode("\u001bc"));
   Deno.stdout.writeSync(
     encode(
-      ` ------------------------------ MON v0.0.3 ------------------------------ \n`,
+      ` ------------------------------ MON v0.0.3 ------------------------------\n`,
     ),
   );
   Deno.stdout.writeSync(
@@ -51,7 +51,7 @@ export function printBannerMsg(balance: number, message?: string) {
 
   Deno.stdout.writeSync(
     encode(
-      " ------------------------------------------------------------------------ \n",
+      " ------------------------------------------------------------------------\n",
     ),
   );
 }

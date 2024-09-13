@@ -8,3 +8,7 @@ cd $env:LOCALAPPDATA/mon
 deno compile -A mod.ts
 # Add $HOME/appdata/local/mon to PATH
 ```
+
+<div align="center">
+  <video src="https://github.com/1pedroalmeida/mon/blob/main/preview.mp4">
+</div>
