@@ -2,7 +2,7 @@
 //TODO automatic transactions
 //TODO savings
 
-import { encode, decode, getFileData, getBalance, printStartMsg, formatDate } from "./utils.ts";
+import { encode, decode, getFileData, getBalance, printBannerMsg, formatDate } from "./utils.ts";
 
 const appdata = Deno.env.get("LOCALAPPDATA");
 const folder = appdata + "\\mon\\";
@@ -30,7 +30,7 @@ if(isNaN(balance)) {
     Deno.exit(1);
 }
 
-printStartMsg(balance);
+printBannerMsg(balance);
 
 while (true) {
     const date = new Date();
@@ -54,13 +54,13 @@ while (true) {
 
         if (["clear", "c"].includes(input)) {
             Deno.writeTextFileSync(filePath, `[${formatDate(date)}]${balance}\n`);
-            Deno.stdout.writeSync(encode("History has been cleared\n"));
+            printBannerMsg(balance, "History has been cleared");
             continue;
         }
 
         if(["reset", "R"].includes(input)) {
             Deno.writeTextFileSync(filePath, "");
-            Deno.stdout.writeSync(encode("Account balance has been reset\n"))
+            printBannerMsg(0, "Account balance has been reset")
             continue;
         }
 
@@ -88,6 +88,6 @@ while (true) {
     data = getFileData(filePath);
     balance = getBalance(data);
 
-    printStartMsg(balance, true, Number(input) > 0 ? "+" + input : input);
+    printBannerMsg(balance, Number(input) > 0 ? `Added +${input}€ to the balance` : `Removed ${input}€ from the balance`);
   }
 }
