@@ -55,7 +55,6 @@ while (true) {
     );
 
     if (["history", "h"].includes(input)) {
-      //TODO history
       Deno.stdout.writeSync(encode(getFileData(filePath)));
       continue;
     }

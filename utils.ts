@@ -13,7 +13,7 @@ export function getFileData(file: string | URL) {
 }
 
 export function formatDate(date: Date) {
-  return date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() +
+  return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() +
     "." + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 }
 
